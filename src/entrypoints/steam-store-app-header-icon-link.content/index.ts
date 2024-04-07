@@ -1,4 +1,5 @@
 import steambaseIcon from "~/assets/steambase_icon.svg";
+
 import { buildExternalUrl } from "@/lib/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/helpers/steam-store-url-helpers";
 import { PositiveReviewsFilter } from "@/lib/constants/steam-colors";
@@ -12,14 +13,14 @@ export default defineContentScript({
         // Try Get Link Container
         const linkDiv = document.querySelector("div.apphub_OtherSiteInfo");
         if (!linkDiv) {
-          console.warn(`Unable to find link container for 'steam-store-app-header-icon-link' content script`);
+          console.warn(`[steam-store-app-header-icon-link] - Unable to find header link container`);
           return;
         }
 
         // Try Get App Id
         const appId = tryExractAppId(document.URL.toString());
         if (!appId) {
-          console.warn(`Unable extract app id from url for 'steam-store-app-header-icon-link' content script`);
+          console.warn(`[steam-store-app-header-icon-link] - Unable extract app id from url`);
           return;
         }
 

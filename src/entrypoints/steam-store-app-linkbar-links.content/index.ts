@@ -24,6 +24,23 @@ export default defineContentScript({
           return;
         }
 
+        // Conditionally Add Price Tracker Link
+        const freeGameBtn = document.querySelector(
+          "div.game_area_purchase_game > div.game_purchase_action > div.game_purchase_action_bg > #freeGameBtn"
+        );
+
+        if (!freeGameBtn) {
+          // Build Price Tracker Link
+          const link = document.createElement("a");
+          link.innerText = "View Price History & Deals";
+          link.className = "linkbar responsive_chevron_right";
+          link.target = "_blank";
+          link.href = buildExternalUrl(`https://steambase.io/apps/${appId}/price`);
+
+          // Add Price Tracker Link To DOM
+          linkbarDiv.append(link);
+        }
+
         // Build Steambase Link
         const link = document.createElement("a");
         link.innerText = "View on Steambase (Steam Charts)";

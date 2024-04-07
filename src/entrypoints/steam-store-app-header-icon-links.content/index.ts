@@ -9,18 +9,18 @@ export default defineContentScript({
   main(ctx) {
     const ui = createIntegratedUi(ctx, {
       position: "inline",
-      onMount: (_) => {
+      onMount: async (_) => {
         // Try Get Link Container
         const linkDiv = document.querySelector("div.apphub_OtherSiteInfo");
         if (!linkDiv) {
-          console.warn(`[steam-store-app-header-icon-link] - Unable to find header link container`);
+          console.warn(`[steam-store-app-header-icon-links] - Unable to find header link container`);
           return;
         }
 
         // Try Get App Id
         const appId = tryExractAppId(document.URL.toString());
         if (!appId) {
-          console.warn(`[steam-store-app-header-icon-link] - Unable extract app id from url`);
+          console.warn(`[steam-store-app-header-icon-links] - Unable extract app id from url`);
           return;
         }
 

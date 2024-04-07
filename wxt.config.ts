@@ -1,9 +1,12 @@
-import { defineConfig } from 'wxt';
-import { svelte, vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { defineConfig } from "wxt";
+import { svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
-  srcDir: 'src',
+  srcDir: "src",
+  manifest: {
+    host_permissions: ["*://*.steambase.io/*", "*://store.steampowered.com/*"],
+  },
   vite: () => ({
     plugins: [
       svelte({

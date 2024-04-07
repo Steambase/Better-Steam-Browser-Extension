@@ -12,14 +12,14 @@ export default defineContentScript({
         // Try Get Link Container
         const linkDiv = document.querySelector("div.apphub_OtherSiteInfo");
         if (!linkDiv) {
-          console.warn(`Unable to find link container for 'steam-store-app-header-link' content script`);
+          console.warn(`Unable to find link container for 'steam-store-app-header-icon-link' content script`);
           return;
         }
 
         // Try Get App Id
         const appId = tryExractAppId(document.URL.toString());
         if (!appId) {
-          console.warn(`Unable extract app id from url for 'steam-store-app-header-link' content script`);
+          console.warn(`Unable extract app id from url for 'steam-store-app-header-icon-link' content script`);
           return;
         }
 

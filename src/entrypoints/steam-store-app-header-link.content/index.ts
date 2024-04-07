@@ -1,4 +1,4 @@
-import steambaseIcon from "~/assets/steambase_icon_steam_positive.svg";
+import steambaseIcon from "~/assets/steambase_icon.svg";
 
 export default defineContentScript({
   matches: ["https://store.steampowered.com/app/1244090/Sea_of_Stars/"],
@@ -21,11 +21,12 @@ export default defineContentScript({
         link.href = `https://steambase.io/games`;
 
         const span = document.createElement("span");
-        span.dataset.tooltipText = "View on Steambase";
+        span.dataset.tooltipText = "View on Steambase (Charts & Stats)";
         link.appendChild(span);
 
         const image = document.createElement("img");
-        image.className = "game_review_summary positive";
+        image.style.filter =
+          "invert(80%) sepia(25%) saturate(6318%) hue-rotate(177deg) brightness(106%) contrast(91%)";
         image.style.margin = "7px 0";
         image.style.verticalAlign = "top";
         image.style.display = "inline-block";

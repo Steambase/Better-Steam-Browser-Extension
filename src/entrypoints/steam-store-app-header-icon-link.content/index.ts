@@ -1,5 +1,5 @@
 import steambaseIcon from "~/assets/steambase_icon.svg";
-import { buildSteambaseUrl } from "@/lib/helpers/build-steambase-url";
+import { buildExternalUrl } from "@/lib/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/helpers/steam-store-url-helpers";
 import { PositiveReviewsFilter } from "@/lib/constants/steam-colors";
 
@@ -27,7 +27,7 @@ export default defineContentScript({
         const link = document.createElement("a");
         link.className = "btnv6_blue_hoverfade btn_medium";
         link.target = "_blank";
-        link.href = buildSteambaseUrl(`https://steambase.io/apps/${appId}`);
+        link.href = buildExternalUrl(`https://steambase.io/apps/${appId}`);
 
         const span = document.createElement("span");
         span.dataset.tooltipText = "View on Steambase (Steam Charts)";

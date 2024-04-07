@@ -41,7 +41,7 @@ export default defineContentScript({
           span.dataset.tooltipText = "Price Tracker (Lowest Price & Deals)";
           span.innerText = "Price Tracker";
 
-          // Add Price Tracker To DOM
+          // Add Price Tracker Link To DOM
           link.appendChild(span);
           linkDiv.insertBefore(link, linkDiv.firstChild);
         }

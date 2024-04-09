@@ -6,7 +6,13 @@ import { svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 export default defineConfig({
   srcDir: "src",
   manifest: {
-    host_permissions: ["*://*.steambase.io/*", "*://store.steampowered.com/*", ""],
+    name: "Better Steam",
+    description: "Improve your experience on Steam. Better Steam removes the bloat, adds more data, and is blazingly fast.",
+    developer: {
+      name: "Steambase",
+      url: "https://steambase.io",
+    },
+    host_permissions: ["*://*.steambase.io/*", "*://*.steampowered.com/*", "*://*steamcommunity.com/*"],
     permissions: ["storage"],
   },
   vite: () => ({

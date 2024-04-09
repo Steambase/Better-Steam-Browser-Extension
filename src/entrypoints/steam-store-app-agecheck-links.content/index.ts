@@ -48,7 +48,7 @@ export default defineContentScript({
 
         const image = document.createElement("img");
         image.style.filter = PositiveReviewsFilter;
-        image.style.margin = "7px 0 0 5px";
+        image.style.margin = "7px 0 0 4px";
         image.style.verticalAlign = "top";
         image.style.display = "inline-block";
         image.style.width = "16px";

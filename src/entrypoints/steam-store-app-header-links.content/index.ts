@@ -53,12 +53,13 @@ export default defineContentScript({
         link.href = buildExternalUrl(`https://steambase.io/apps/${appId}`);
 
         const span = document.createElement("span");
+        span.innerText = "Steam Charts";
         span.dataset.tooltipText = "View on Steambase (Steam Charts)";
         link.appendChild(span);
 
         const image = document.createElement("img");
         image.style.filter = PositiveReviewsFilter;
-        image.style.margin = "7px 0";
+        image.style.margin = "7px 0 0 4px";
         image.style.verticalAlign = "top";
         image.style.display = "inline-block";
         image.style.width = "16px";

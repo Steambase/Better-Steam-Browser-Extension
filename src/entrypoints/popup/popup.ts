@@ -1,7 +1,7 @@
 import "@/lib/styles/app.pcss";
-import App from "./App.svelte";
+import Popup from "./Popup.svelte";
 
-const app = new App({
+const app = new Popup({
   target: document.getElementById("app")!,
 });
 

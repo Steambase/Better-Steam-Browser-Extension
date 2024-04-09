@@ -1,7 +1,7 @@
 import steambaseIcon from "~/assets/steambase_icon.svg";
 
 import { buildExternalUrl } from "@/lib/helpers/external-url-helper";
-import { tryExractAppId } from "@/lib/helpers/steam-store-url-helpers";
+import { tryExractAppId } from "@/lib/helpers/steam-url-helpers";
 import { PositiveReviewsFilter } from "@/lib/constants/steam-colors";
 
 export default defineContentScript({

@@ -1,5 +1,5 @@
 import { buildExternalUrl } from "@/lib/helpers/external-url-helper";
-import { tryExractAppId } from "@/lib/helpers/steam-store-url-helpers";
+import { tryExractAppId } from "@/lib/helpers/steam-url-helpers";
 
 export default defineContentScript({
   matches: ["*://store.steampowered.com/app/*"],

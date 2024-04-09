@@ -5,7 +5,7 @@
   import Separator from "@/lib/components/ui/separator/separator.svelte";
   import BooleanOption from "./BooleanOption.svelte";
 
-  import { BYPASS_AGE_CHECKS } from "@/lib/common/constants/options";
+  import { BYPASS_AGE_CHECK_KEY, shouldBypassAgeCheck } from "@/lib/common/storage/options";
 </script>
 
 <main class="flex justify-center items-center w-full h-screen bg-slate-50">
@@ -19,7 +19,8 @@
     <div class="space-y-4">
       <h2 class="text-xl font-semibold mt-6">Global Options</h2>
       <BooleanOption
-        key={BYPASS_AGE_CHECKS.key}
+        key={BYPASS_AGE_CHECK_KEY}
+        store={shouldBypassAgeCheck}
         label="Bypass age checks"
         description="Bypass all age checks in the Steam Store and Steam Community Hub."
       />

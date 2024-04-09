@@ -1,8 +1,8 @@
 import steambaseIcon from "~/assets/steambase_icon.svg";
 
-import { buildExternalUrl } from "@/lib/helpers/external-url-helper";
-import { tryExractAppId } from "@/lib/helpers/steam-url-helpers";
-import { PositiveReviewsFilter } from "@/lib/constants/steam-colors";
+import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
+import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
+import { PositiveReviewsFilter } from "@/lib/common/constants/steam-colors";
 
 export default defineContentScript({
   matches: ["*://store.steampowered.com/app/*"],

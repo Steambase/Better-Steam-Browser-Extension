@@ -40,13 +40,13 @@
         <div class="sb_player_stats_container">
           <ul class="sb_player_stats_list">
             {#if game.stats.current_players}
-              <li>Player Online - {game.stats.current_players.toLocaleString()}</li>
+              <li>Player Online: <span>{game.stats.current_players.toLocaleString()}</span></li>
             {/if}
             {#if game.stats.peak_players}
-              <li>Peak Players - {game.stats.peak_players.toLocaleString()}</li>
+              <li>All-Time Peak: <span>{game.stats.peak_players.toLocaleString()}</span></li>
             {/if}
             {#if game.stats.community_hub_members}
-              <li>Community Members - {game.stats.community_hub_members.toLocaleString()}</li>
+              <li>Community Members: <span>{game.stats.community_hub_members.toLocaleString()}</span></li>
             {/if}
           </ul>
           <a href={url} target="_blank" title="View Steam Charts & Stats on Steambase">
@@ -68,5 +68,15 @@
 
   .sb_player_stats_list {
     list-style-type: none;
+  }
+
+  .sb_player_stats_list > li {
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .sb_player_stats_list > li > span {
+    font-weight: 600;
+    color: rgb(132, 225, 188);
   }
 </style>

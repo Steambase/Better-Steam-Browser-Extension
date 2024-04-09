@@ -1,12 +1,13 @@
 import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
+import { fetchGame } from "@/lib/game/queries/fetchGame";
 
 export default defineContentScript({
   matches: ["*://store.steampowered.com/app/*"],
   main(ctx) {
     const ui = createIntegratedUi(ctx, {
       position: "inline",
-      onMount: (_) => {
+      onMount: async (_) => {
         // Find User Reviews Element
         const userReviewsDiv = document.querySelector("div.glance_ctn_responsive_left > #userReviews");
         if (!userReviewsDiv) {
@@ -18,6 +19,18 @@ export default defineContentScript({
         const appId = tryExractAppId(document.URL.toString());
         if (!appId) {
           console.warn(`[steam-store-app-player-score-label] - Unable extract app id from url`);
+          return;
+        }
+
+        // Try Fetch Game (Using App Id)
+        const game = await fetchGame(appId);
+        if (!game) {
+          console.log(`[steam-store-app-player-score-label] - App Id: '${appId}' is not a game or game was not found`);
+          return;
+        }
+
+        if (!game.reviews?.steam?.calculated_score) {
+          console.warn(`[steam-store-app-player-score-label] - Steam reviews not found for App Id: '${appId}'`);
           return;
         }
 
@@ -38,7 +51,8 @@ export default defineContentScript({
 
         const primarySpan = document.createElement("span");
         primarySpan.style.fontWeight = "600";
-        primarySpan.innerText = "58 / 100";
+        primarySpan.style.color = getReviewTextColor(game.reviews.steam.calculated_score);
+        primarySpan.innerText = `${game.reviews.steam.calculated_score.toFixed(0)} / 100`;
 
         summary.appendChild(primarySpan);
         playerScoreRow.appendChild(summary);
@@ -56,9 +70,14 @@ export default defineContentScript({
   },
 });
 
-function getReviewTextColor(score) {
-  switch (score) {
-    case score >= 80 && score <= 100:
-      return "rgb(14, 159, 110)";
+function getReviewTextColor(score: number): string {
+  if (score >= 75) {
+    return "rgb(132, 225, 188)";
   }
+
+  if (score >= 50) {
+    return "rgb(217, 119, 6)";
+  }
+
+  return "rgb(240, 82, 82)";
 }

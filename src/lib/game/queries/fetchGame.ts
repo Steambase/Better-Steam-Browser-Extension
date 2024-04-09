@@ -6,7 +6,7 @@ export async function fetchGame(id: string | undefined): Promise<Game | undefine
   }
 
   // Build Request Url
-  const gameUrl = new URL(`${import.meta.env.PUBLIC_API_URL}/games/${id}`);
+  const gameUrl = new URL(`https://api.steambase.io/games/${id}`);
   const gameResponse = await fetch(gameUrl);
   const game = (await gameResponse.json()) as Game;
 

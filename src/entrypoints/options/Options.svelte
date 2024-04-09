@@ -3,7 +3,6 @@
   import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 
   import Separator from "@/lib/components/ui/separator/separator.svelte";
-  import * as Card from "@/lib/components/ui/card";
 </script>
 
 <main class="flex justify-center items-center w-full h-screen bg-slate-50">

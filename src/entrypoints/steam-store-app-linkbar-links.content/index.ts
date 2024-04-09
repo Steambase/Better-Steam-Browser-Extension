@@ -1,12 +1,13 @@
 import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
+import { fetchGame } from "@/lib/game/queries/fetchGame";
 
 export default defineContentScript({
   matches: ["*://store.steampowered.com/app/*"],
   main(ctx) {
     const ui = createIntegratedUi(ctx, {
       position: "inline",
-      onMount: (_) => {
+      onMount: async (_) => {
         // Try Get Linkbar Container
         const linkbarDiv = document.querySelector(
           "#appDetailsUnderlinedLinks > div.block_content > div.block_content_inner > div.details_block:last-child"
@@ -24,12 +25,15 @@ export default defineContentScript({
           return;
         }
 
+        // Try Fetch Game
+        const game = await fetchGame(appId);
+
         // Conditionally Add Price Tracker Link
         const freeGameBtn = document.querySelector(
           "div.game_area_purchase_game > div.game_purchase_action > div.game_purchase_action_bg > #freeGameBtn"
         );
 
-        if (!freeGameBtn) {
+        if (game && !freeGameBtn) {
           // Build Price Tracker Link
           const link = document.createElement("a");
           link.innerText = "View Price History & Deals";

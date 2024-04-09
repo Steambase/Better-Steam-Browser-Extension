@@ -1,8 +1,8 @@
 import steambaseIcon from "~/assets/steambase_icon.svg";
-
+import { PositiveReviewsFilter } from "@/lib/common/constants/steam-colors";
 import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
-import { PositiveReviewsFilter } from "@/lib/common/constants/steam-colors";
+import { fetchGame } from "@/lib/game/queries/fetchGame";
 
 export default defineContentScript({
   matches: ["*://store.steampowered.com/app/*"],
@@ -29,7 +29,10 @@ export default defineContentScript({
           "div.game_area_purchase_game > div.game_purchase_action > div.game_purchase_action_bg > #freeGameBtn"
         );
 
-        if (!freeGameBtn) {
+        // Try Fetch Game
+        const game = await fetchGame(appId);
+
+        if (game && !freeGameBtn) {
           // Build Price Tracker Link
           const link = document.createElement("a");
           link.className = "btnv6_blue_hoverfade btn_medium";

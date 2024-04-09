@@ -29,7 +29,7 @@
   }
 </script>
 
-<div class="space-x-2 space-y-2 flex flex-row items-center justify-between rounded-lg border p-4">
+<div class="space-x-4 space-y-2 flex flex-row items-center justify-between rounded-lg border p-4">
   <div class="space-y-0.5">
     <Label for={key}>{label}</Label>
     <div class="text-[0.8rem] text-muted-foreground">{description}</div>

@@ -1,1 +1,1 @@
-export const BYPASS_AGE_CHECKS_KEY = "steam:global:bypass-age-checks";
+export const BYPASS_AGE_CHECKS = { key: "steam:global:bypass-age-checks", default: true };

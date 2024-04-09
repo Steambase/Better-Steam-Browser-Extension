@@ -56,7 +56,7 @@ export default defineContentScript({
         primarySpan.innerText = `${game.reviews.steam.calculated_score.toFixed(0)} / 100`;
 
         const toolTipLink = document.createElement("a");
-        toolTipLink.dataset.tooltipText = `Steambase's Player Score is calculated as the weighted average of all positive and negative reviews fetched from the Steam Store for ${game.name}. Click here to reiview more review charts, stats, and trends.`;
+        toolTipLink.dataset.tooltipText = `Steambase's Player Score is calculated as the weighted average of all positive and negative reviews for ${game.name}. Click here to explore more charts, stats, and trends.`;
         toolTipLink.href = buildExternalUrl(`https://steambase.io/games/${appId}/reviews#reviews`);
         toolTipLink.target = "_blank";
         toolTipLink.className = "responsive_hidden";

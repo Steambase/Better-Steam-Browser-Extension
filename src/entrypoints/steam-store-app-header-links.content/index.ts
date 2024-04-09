@@ -5,7 +5,7 @@ import { tryExractAppId } from "@/lib/helpers/steam-store-url-helpers";
 import { PositiveReviewsFilter } from "@/lib/constants/steam-colors";
 
 export default defineContentScript({
-  matches: ["https://store.steampowered.com/app/*"],
+  matches: ["*://store.steampowered.com/app/*"],
   main(ctx) {
     const ui = createIntegratedUi(ctx, {
       position: "inline",

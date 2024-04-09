@@ -2,7 +2,7 @@ import { buildExternalUrl } from "@/lib/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/helpers/steam-store-url-helpers";
 
 export default defineContentScript({
-  matches: ["https://store.steampowered.com/app/*"],
+  matches: ["*://store.steampowered.com/app/*"],
   main(ctx) {
     const ui = createIntegratedUi(ctx, {
       position: "inline",

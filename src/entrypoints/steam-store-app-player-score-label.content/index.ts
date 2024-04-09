@@ -1,3 +1,4 @@
+import { NegativeReviewScore, NeutralReviewScore, PositiveReviewScore } from "@/lib/common/constants/steambase-colors";
 import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
 import { fetchGame } from "@/lib/game/queries/fetchGame";
@@ -72,12 +73,12 @@ export default defineContentScript({
 
 function getReviewTextColor(score: number): string {
   if (score >= 75) {
-    return "rgb(132, 225, 188)";
+    return PositiveReviewScore;
   }
 
   if (score >= 50) {
-    return "rgb(217, 119, 6)";
+    return NeutralReviewScore;
   }
 
-  return "rgb(240, 82, 82)";
+  return NegativeReviewScore;
 }

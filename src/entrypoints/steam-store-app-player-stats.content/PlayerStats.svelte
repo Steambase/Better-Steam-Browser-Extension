@@ -40,7 +40,7 @@
         <div class="sb_player_stats_container">
           <ul class="sb_player_stats_list">
             {#if game.stats.current_players}
-              <li>Player Online: <span>{game.stats.current_players.toLocaleString()}</span></li>
+              <li>Players Online: <span>{game.stats.current_players.toLocaleString()}</span></li>
             {/if}
             {#if game.stats.peak_players}
               <li>All-Time Peak: <span>{game.stats.peak_players.toLocaleString()}</span></li>

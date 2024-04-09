@@ -26,7 +26,6 @@
     "wxt": "^0.17.12"
   },
   "dependencies": {
-    "bits-ui": "^0.21.2",
     "clsx": "^2.1.0",
     "lucide-svelte": "^0.366.0",
     "tailwind-merge": "^2.2.2",

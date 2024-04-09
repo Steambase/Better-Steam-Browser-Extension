@@ -1,10 +1,6 @@
 {
   "extends": "./.wxt/tsconfig.json",
   "compilerOptions": {
-    "useDefineForClassFields": true,
-    "paths": {
-      "$lib": ["./src/lib"],
-      "$lib/*": ["./src/lib/*"]
-    }
+    "useDefineForClassFields": true
   }
 }

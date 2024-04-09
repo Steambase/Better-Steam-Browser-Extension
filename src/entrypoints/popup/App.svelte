@@ -1,5 +1,5 @@
 <script lang="ts">
-  // import { buildExternalLink } from "~lib/common/helpers/exernal-url-helper";
+  // import { buildExternalLink } from "@/lib/";
 
   // const steamSaleTrackerUrl = buildExternalLink("https://steambase.io/sales");
 </script>

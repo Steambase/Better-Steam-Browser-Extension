@@ -24,10 +24,5 @@ export default defineConfig({
         preprocess: [vitePreprocess()],
       }),
     ],
-    resolve: {
-      alias: {
-        $lib: path.resolve("./src/lib"),
-      },
-    },
   }),
 });

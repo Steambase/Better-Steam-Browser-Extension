@@ -22,7 +22,7 @@
         key={BYPASS_AGE_CHECK_KEY}
         store={shouldBypassAgeCheck}
         label="Bypass age checks"
-        description="Bypass all age checks in the Steam Store and Steam Community Hub."
+        description="Bypass all age checks for Steam Store and Steam Community pages."
       />
     </div>
   </div>

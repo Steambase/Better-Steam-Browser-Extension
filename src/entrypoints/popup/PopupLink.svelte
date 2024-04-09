@@ -1,13 +1,11 @@
 <script lang="ts">
-  import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
-
-  export let targetUrl;
+  export let url: string;
 </script>
 
 <a
-  href={buildExternalUrl(targetUrl)}
+  href={url}
   target="_blank"
-  class="p-4 h-12 flex items-center justify-center rounded hover:bg-slate-700 text-lg text-slate-50"
+  class="p-4 h-12 flex items-center justify-center text-base font-medium text-slate-50 border-2 border-transparent rounded-lg hover:bg-slate-700 hover:border-blue-400"
 >
   <slot />
 </a>

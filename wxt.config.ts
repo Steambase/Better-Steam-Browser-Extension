@@ -1,5 +1,6 @@
 import { defineConfig } from "wxt";
 import { svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import path from "path";
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
@@ -15,5 +16,10 @@ export default defineConfig({
         preprocess: [vitePreprocess()],
       }),
     ],
+    resolve: {
+      alias: {
+        $lib: path.resolve("./src/lib"),
+      },
+    },
   }),
 });

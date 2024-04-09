@@ -7,26 +7,20 @@
 </script>
 
 <main class="flex justify-center items-center w-full h-screen bg-slate-50">
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center w-[450px]">
     <a href={buildExternalUrl("https://steambase.io")} target="_blank" class="px-5 py-4 border-2 rounded-lg border-transparent hover:border-blue-300">
       <img src={steambaseLogo} alt="Steambase Logo" width="250" />
     </a>
 
     <Separator class="mt-4 mb-0" />
 
-    <div class="space-y-4 w-[450px]">
+    <div class="space-y-4">
       <h2 class="text-xl font-semibold mt-6">Global Options</h2>
       <BooleanOption
         key="steam:global:bypass-age-checks"
         label="Bypass age checks"
-        description="Bypass all age checks inside the Steam Store and Steam Community Hub."
+        description="Bypass all age checks in the Steam Store and Steam Community Hub."
       />
     </div>
-
-    <!-- <h2 class="text-xl font-semibold mt-6">Option Section 2</h2>
-    <p class="mt-2">Description or content for option section 2.</p>
-
-    <h2 class="text-xl font-semibold mt-6">Option Section 3</h2>
-    <p class="mt-2">Description or content for option section 3.</p> -->
   </div>
 </main>

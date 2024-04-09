@@ -6,7 +6,7 @@
 </script>
 
 <main class="flex justify-center items-center w-full h-screen bg-slate-50">
-  <div class="flex flex-col items-start">
+  <div class="flex flex-col items-center">
     <a href={buildExternalUrl("https://steambase.io")} target="_blank" class="px-5 py-4 border-2 rounded-lg border-transparent hover:border-blue-300">
       <img src={steambaseLogo} alt="Steambase Logo" width="250" />
     </a>

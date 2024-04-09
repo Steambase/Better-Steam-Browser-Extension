@@ -3,6 +3,8 @@
   import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 
   import Separator from "@/lib/components/ui/separator/separator.svelte";
+  import { Label } from "@/lib/components/ui/label/index.js";
+  import { Switch } from "@/lib/components/ui/switch/index.js";
 </script>
 
 <main class="flex justify-center items-center w-full h-screen bg-slate-50">
@@ -13,20 +15,15 @@
 
     <Separator class="mt-4 mb-0" />
 
-    <div class="space-y-4">
+    <div class="space-y-4 w-[400px]">
       <h2 class="text-xl font-semibold mt-6">Global Options</h2>
       <div class="space-y-2 flex flex-row items-center justify-between rounded-lg border p-4">
         <div class="space-y-0.5">
-          <label
-            data-melt-label=""
-            data-label-root=""
-            class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 data-[fs-error]:text-destructive text-base"
-            for="VwyNx"
-            data-fs-label="">Communication emails</label
-          >
+          <Label for="airplane-mode">Communication emails</Label>
           <div id="iGnw2" data-fs-description="" class="text-[0.8rem] text-muted-foreground">Receive emails about your account activity.</div>
         </div>
         <!-- Switch-->
+        <Switch id="airplane-mode" />
       </div>
     </div>
 

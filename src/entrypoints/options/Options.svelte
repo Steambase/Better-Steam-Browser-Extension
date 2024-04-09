@@ -5,7 +5,14 @@
   import Separator from "@/lib/components/ui/separator/separator.svelte";
   import BooleanOption from "./BooleanOption.svelte";
 
-  import { BYPASS_AGE_CHECK_KEY, shouldBypassAgeCheck } from "@/lib/common/storage/options";
+  import {
+    BYPASS_AGE_CHECK_KEY,
+    BYPASS_LINK_FILTERS,
+    HIDE_INSTALL_STEAM_BUTTON,
+    shouldBypassAgeCheck,
+    shouldBypassLinksFilters,
+    shouldHideInstallSteamButton,
+  } from "@/lib/common/storage/options";
 </script>
 
 <main class="flex justify-center items-center w-full h-screen bg-slate-50">
@@ -23,6 +30,18 @@
         store={shouldBypassAgeCheck}
         label="Bypass age checks"
         description="Bypass all age checks for Steam Store and Steam Community pages."
+      />
+      <BooleanOption
+        key={HIDE_INSTALL_STEAM_BUTTON}
+        store={shouldHideInstallSteamButton}
+        label="Hide 'Install Steam' buttons"
+        description="Removes the 'Install Steam' button from all pages."
+      />
+      <BooleanOption
+        key={BYPASS_LINK_FILTERS}
+        store={shouldBypassLinksFilters}
+        label="Bypass link filters"
+        description="Bypass 'link filter' pages when visting external links (like a game developer's website) on Steam."
       />
     </div>
   </div>

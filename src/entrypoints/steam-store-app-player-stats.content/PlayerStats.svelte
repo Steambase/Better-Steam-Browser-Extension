@@ -1,35 +1,72 @@
 <script lang="ts">
-  import svelteLogo from "../../assets/svelte.svg";
+  import steambaseIcon from "~/assets/steambase_icon.svg";
+  import { PositiveReviewsFilter } from "@/lib/common/constants/steam-colors";
+  import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
+  import { fetchGame } from "@/lib/game/queries/fetchGame";
+  import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
+
+  // Try Build Steambase Url
+  let appId = tryExractAppId(document.URL);
+  const url = appId
+    ? buildExternalUrl(`https://steambase.io/games/${appId}/steam-charts#player-count-steam-chart`)
+    : buildExternalUrl(`https://steambase.io/games`);
+
+  // Try Fetch Game
+  const fetchGameTask = fetchGame(appId);
 </script>
 
-<main>
-  <div>
-    <a href="https://wxt.dev" target="_blank" rel="noreferrer">
-      <img src="/wxt.svg" class="logo" alt="WXT Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>WXT + Svelte</h1>
-
-  <p class="read-the-docs">Click on the WXT and Svelte logos to learn more</p>
-</main>
+{#if appId}
+  {#await fetchGameTask then game}
+    {#if game}
+      <div class="block responsive_apppage_details_right heading responsive_hidden">
+        Steam Charts & Stats
+        <a href={url} target="_blank" style="margin-left: 1px;">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-external-link"
+            ><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg
+          ></a
+        >
+      </div>
+      <div class="block responsive_apppage_details_right recommendation_noinfo responsive_hidden">
+        <div class="sb_player_stats_container">
+          <ul class="sb_player_stats_list">
+            {#if game.stats.current_players}
+              <li>Player Online - {game.stats.current_players.toLocaleString()}</li>
+            {/if}
+            {#if game.stats.peak_players}
+              <li>Peak Players - {game.stats.peak_players.toLocaleString()}</li>
+            {/if}
+            {#if game.stats.community_hub_members}
+              <li>Community Members - {game.stats.community_hub_members.toLocaleString()}</li>
+            {/if}
+          </ul>
+          <a href={url} target="_blank" title="View Steam Charts & Stats on Steambase">
+            <img src={steambaseIcon} style={`filter: ${PositiveReviewsFilter};`} width="48" height="48" alt="Steambase Icon" />
+          </a>
+        </div>
+      </div>
+    {/if}
+  {/await}
+{/if}
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  .sb_player_stats_container {
+    display: flex;
+    flex-direction: flex-row;
+    justify-content: space-between;
+    width: 100%;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #54bc4ae0);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
+
+  .sb_player_stats_list {
+    list-style-type: none;
   }
 </style>

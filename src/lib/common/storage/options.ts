@@ -20,15 +20,16 @@ export const shouldBypassLinksFilters = storage.defineItem<boolean>(BYPASS_LINK_
   defaultValue: false,
 });
 
+// External Buttons & Links To Steambase
+export const SHOW_EXTERNAL_BUTTONS_AND_LINKS = "local:steam:global:show-external-buttons-and-links";
+export const shouldShowExternalButtonsAndLinks = storage.defineItem<boolean>(SHOW_EXTERNAL_BUTTONS_AND_LINKS, {
+  defaultValue: true,
+});
+
 /**
  * Steam App Options
  */
 export const SHOW_APP_STATS = "local:steam:app:show-app-stats";
 export const shouldShowAppStats = storage.defineItem<boolean>(SHOW_APP_STATS, {
-  defaultValue: true,
-});
-
-export const SHOW_APP_BUTTONS_AND_LINKS = "local:steam:app:show-app-buttons-and-links";
-export const shouldShowAppButtonsAndLinks = storage.defineItem<boolean>(SHOW_APP_BUTTONS_AND_LINKS, {
   defaultValue: true,
 });

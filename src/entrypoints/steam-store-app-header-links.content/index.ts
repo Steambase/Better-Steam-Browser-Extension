@@ -1,4 +1,6 @@
 import steambaseIcon from "~/assets/steambase_icon.svg";
+
+import { shouldShowExternalButtonsAndLinks } from "@/lib/common/storage/options";
 import { PositiveReviewsFilter } from "@/lib/common/constants/steam-colors";
 import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
@@ -10,6 +12,13 @@ export default defineContentScript({
     const ui = createIntegratedUi(ctx, {
       position: "inline",
       onMount: async (_) => {
+        // Ensure Enabled
+        const enabled = await shouldShowExternalButtonsAndLinks.getValue();
+        if (!enabled) {
+          console.log(`[steam-store-app-header-links] - Disabled via user options`);
+          return;
+        }
+
         // Try Get Link Container
         const linkDiv = document.querySelector("div.apphub_OtherSiteInfo");
         if (!linkDiv) {

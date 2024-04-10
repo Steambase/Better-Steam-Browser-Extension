@@ -9,12 +9,12 @@
     BYPASS_AGE_CHECK_KEY,
     BYPASS_LINK_FILTERS,
     HIDE_INSTALL_STEAM_BUTTON,
-    SHOW_APP_BUTTONS_AND_LINKS,
+    SHOW_EXTERNAL_BUTTONS_AND_LINKS,
     SHOW_APP_STATS,
     shouldBypassAgeCheck,
     shouldBypassLinksFilters,
     shouldHideInstallSteamButton,
-    shouldShowAppButtonsAndLinks,
+    shouldShowExternalButtonsAndLinks,
     shouldShowAppStats,
   } from "@/lib/common/storage/options";
 </script>
@@ -60,10 +60,10 @@
         description="Show additional stats like concurrent players, review scores, and the best price for each game."
       />
       <BooleanOption
-        key={SHOW_APP_BUTTONS_AND_LINKS}
-        store={shouldShowAppButtonsAndLinks}
-        label="Show extra buttons"
-        description="Show extra buttons on game pages which let you track Steam charts, player counts, and more."
+        key={SHOW_EXTERNAL_BUTTONS_AND_LINKS}
+        store={shouldShowExternalButtonsAndLinks}
+        label="Show additional links"
+        description="Show extra buttons and links on game pages which let you track Steam charts, player counts, and more."
       />
     </div>
   </div>

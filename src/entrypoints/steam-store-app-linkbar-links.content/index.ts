@@ -1,3 +1,4 @@
+import { shouldShowExternalButtonsAndLinks } from "@/lib/common/storage/options";
 import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
 import { fetchGame } from "@/lib/game/queries/fetchGame";
@@ -8,6 +9,13 @@ export default defineContentScript({
     const ui = createIntegratedUi(ctx, {
       position: "inline",
       onMount: async (_) => {
+        // Ensure Enabled
+        const enabled = await shouldShowExternalButtonsAndLinks.getValue();
+        if (!enabled) {
+          console.log(`[steam-store-app-linkbar-links] - Disabled via user options`);
+          return;
+        }
+
         // Try Get Linkbar Container
         const linkbarDiv = document.querySelector(
           "#appDetailsUnderlinedLinks > div.block_content > div.block_content_inner > div.details_block:last-child"

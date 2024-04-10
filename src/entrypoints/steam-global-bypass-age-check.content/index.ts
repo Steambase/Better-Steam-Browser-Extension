@@ -10,6 +10,7 @@ export default defineContentScript({
         const enabled = await shouldBypassAgeCheck.getValue();
         if (!enabled) {
           console.log(`[steam-global-bypass-age-check] - Disabled via user options`);
+          return;
         }
 
         // Create Future Date (1 Year)

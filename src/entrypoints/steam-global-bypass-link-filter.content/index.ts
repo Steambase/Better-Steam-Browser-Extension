@@ -1,9 +1,18 @@
+import { shouldBypassLinksFilters } from "@/lib/common/storage/options";
+
 export default defineContentScript({
   matches: ["*://store.steampowered.com/*", "*://steamcommunity.com/*"],
   main(ctx) {
     const ui = createIntegratedUi(ctx, {
       position: "inline",
-      onMount: (_) => {
+      onMount: async (_) => {
+        // Ensure Enabled
+        const enabled = await shouldBypassLinksFilters.getValue();
+        if (!enabled) {
+          console.log(`[steam-global-bypass-link-filter] - Disabled via user options`);
+          return;
+        }
+
         const linkFilterAnchors = document.querySelectorAll('a[href^="https://steamcommunity.com/linkfilter/"]') as NodeListOf<HTMLAnchorElement>;
 
         for (const link of linkFilterAnchors) {

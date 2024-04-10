@@ -8,7 +8,7 @@ export default defineConfig({
   manifest: {
     name: "Better Steam",
     description:
-      "Improve your experience using Steam. Better Steam removes the bloat, adds helpful data like player count stats, and is blazingly fast.",
+      "Improve your experience using Steam — Better Steam removes the bloat, adds game insights, and helps you hunt down a deal for your next game purchase.",
     developer: {
       name: "Steambase",
       url: "https://steambase.io",

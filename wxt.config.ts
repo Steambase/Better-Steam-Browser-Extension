@@ -9,11 +9,7 @@ export default defineConfig({
     name: "Better Steam",
     description:
       "Improve your experience using Steam — Better Steam removes the bloat, adds game insights, and helps you hunt down a deal for your next game purchase.",
-    developer: {
-      name: "Steambase",
-      url: "https://steambase.io",
-    },
-    host_permissions: ["*://*.steambase.io/*", "*://*.steampowered.com/*", "*://*steamcommunity.com/*"],
+    host_permissions: ["*://*.steambase.io/*", "*://*.steampowered.com/*", "*://steamcommunity.com/*"],
     permissions: ["storage"],
   },
   vite: () => ({

@@ -1,4 +1,5 @@
 import { NegativeReviewScore, NeutralReviewScore, PositiveReviewScore } from "@/lib/common/constants/steambase-colors";
+import { shouldShowAppStats } from "@/lib/common/storage/options";
 import { buildExternalUrl } from "@/lib/common/helpers/external-url-helper";
 import { tryExractAppId } from "@/lib/common/helpers/steam-url-helpers";
 import { fetchGame } from "@/lib/game/queries/fetchGame";
@@ -9,6 +10,13 @@ export default defineContentScript({
     const ui = createIntegratedUi(ctx, {
       position: "inline",
       onMount: async (_) => {
+        // Ensure Enabled
+        const enabled = await shouldShowAppStats.getValue();
+        if (!enabled) {
+          console.log(`[steam-store-app-player-score-label] - Disabled via user options`);
+          return;
+        }
+
         // Find User Reviews Element
         const userReviewsDiv = document.querySelector("div.glance_ctn_responsive_left > #userReviews");
         if (!userReviewsDiv) {

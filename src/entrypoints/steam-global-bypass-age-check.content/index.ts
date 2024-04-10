@@ -1,9 +1,17 @@
+import { shouldBypassAgeCheck } from "@/lib/common/storage/options";
+
 export default defineContentScript({
   matches: ["*://store.steampowered.com/*", "*://steamcommunity.com/*"],
   main(ctx) {
     const ui = createIntegratedUi(ctx, {
       position: "inline",
-      onMount: (_) => {
+      onMount: async (_) => {
+        // Ensure Enabled
+        const enabled = await shouldBypassAgeCheck.getValue();
+        if (!enabled) {
+          console.log(`[steam-global-bypass-age-check] - Disabled via user options`);
+        }
+
         // Create Future Date (1 Year)
         const date = new Date();
         date.setFullYear(date.getFullYear() + 1);

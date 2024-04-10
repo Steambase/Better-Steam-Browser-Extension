@@ -52,11 +52,11 @@
 
     <!-- App Options -->
     <div class="space-y-4">
-      <h2 class="text-xl font-semibold mt-6">Steam Game Options</h2>
+      <h2 class="text-xl font-semibold mt-6">Game Options</h2>
       <BooleanOption
         key={SHOW_APP_STATS}
         store={shouldShowAppStats}
-        label="Show additional game stats"
+        label="Show additional stats"
         description="Show additional stats like concurrent players, review scores, and the best price for each game."
       />
       <BooleanOption

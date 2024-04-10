@@ -7,7 +7,7 @@ export default defineConfig({
   srcDir: "src",
   manifest: {
     name: "Better Steam",
-    description: "Better Steam makes Steam better by removing bloat, adding game insights, and surfacing the best deal for your next purchase.",
+    description: "Makes Steam better by removing the bloat, adding game insights, and surfacing the best deals for you to explore.",
     host_permissions: ["*://*.steambase.io/*", "*://*.steampowered.com/*", "*://steamcommunity.com/*"],
     permissions: ["storage"],
   },

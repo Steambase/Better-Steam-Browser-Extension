@@ -14,7 +14,7 @@ The "Better Steam" browser extension was built to remove annoyances from Steam a
 - [x] Bypass link filter outgoing link pages
 - [x] Include Steambase's "Player Score" directly on Store pages
 - [x] Include minimal link to view Steam charts directly on Store pages
-- [x] Include game status directly on Store pages
+- [x] Include game stats directly on Store pages (player count, all-time peak, community hub members)
 
 ### Have a feature request?
 

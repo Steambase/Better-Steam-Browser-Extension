@@ -3,7 +3,7 @@
 The "Better Steam" browser extension was built to remove annoyances from Steam and add helpful info. Use the links below to install on your favorite browser.
 
 - [Google Chrome](https://chromewebstore.google.com/detail/better-steam/iobagpbkbdkobggejjcnidehfenchpec)
-- [Firefox (coming soon)](#)
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/better-steam/)
 - [Edge (coming soon)](#)
 
 ### Features

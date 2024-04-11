@@ -8,7 +8,7 @@ The "Better Steam" browser extension was built to remove annoyances from Steam a
 
 ## Better Steam Website
 
-Better Steam is powered by Steambase go fetch game charts, stats, price and other data. Explore [Steambase](https://steambase.io) to explore more Steam data.
+Better Steam is powered by Steambase go fetch game charts, stats, price and other data. Checkout [Steambase](https://steambase.io) to explore more Steam data.
 
 ## Firefox Production Build & Bundle Steps
 

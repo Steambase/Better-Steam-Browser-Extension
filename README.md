@@ -4,7 +4,7 @@ The "Better Steam" browser extension was built to remove annoyances from Steam a
 
 - [Google Chrome](https://chromewebstore.google.com/detail/better-steam/iobagpbkbdkobggejjcnidehfenchpec)
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/better-steam/)
-- [Edge (coming soon)](#)
+- [Edge](https://microsoftedge.microsoft.com/addons/detail/better-steam/onjlmigjhcdnikdnnpfpbjbfjloamlpp)
 
 ### Features
 
